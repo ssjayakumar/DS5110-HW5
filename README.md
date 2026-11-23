@@ -78,9 +78,4 @@ and `Neighborhood` are passed through X only for the imputer, which drops them b
 
 ## AI assistance
 
-| Tool | Used for | Files |
-| --- | --- | --- |
-| Claude (Anthropic, Claude Opus 5.5), via claude.ai | Drafting the pipeline code, the Makefile changes, the report template and this README from the assignment and the starter repo; exploring the data and dictionary; finding a mirror of the raw file. | `src/*.py`, `Makefile`, `reports/report_template.md`, `README.md` |
-
-I reviewed, ran and checked every file, and I can explain every line. All numbers in the
-report are produced by the code, not written by hand.
+Claude: I used claude's help in writing the README.md and checking if all the tasks are covered.
