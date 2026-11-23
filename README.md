@@ -7,15 +7,21 @@ leakage-safe evaluation. The report is `reports/report.md`.
 ## How to run
 
 ```
-python -m venv .venv && source .venv/bin/activate
+python -m venv .venv
+source .venv/bin/activate          # Windows (Git Bash): source .venv/Scripts/activate
 pip install -r requirements.txt
 make all
 ```
 
+On Windows, run these in Git Bash with GNU make installed (e.g. `winget install GnuWin32.Make`,
+then add `C:\Program Files (x86)\GnuWin32\bin` to PATH). The Makefile uses no shell-only syntax,
+so it runs the same with GNU make on Linux, macOS and Windows.
+
 Requires Python 3.10 or newer (tested on 3.10, 3.12 and 3.14). `make all` downloads the raw file if it is missing,
 cleans it, checks that validation **fails on the raw file and passes on the cleaned file**, runs
 Parts 5 to 7, and regenerates `reports/report.md` from `reports/report_template.md`.
-`make validate` runs only the validation gate; `make clean` removes all generated outputs
+`make validate` runs only the validation gate (`validate.py --expect-fail` on the raw file, then a normal
+run on the cleaned file); `make clean` removes all generated outputs
 (the raw file is never deleted or edited).
 
 | Step | Script | Output |
@@ -36,8 +42,8 @@ Parts 5 to 7, and regenerates `reports/report.md` from `reports/report_template.
 | Item | Value |
 | --- | --- |
 | Source URL | https://jse.amstat.org/v19n3/decock/AmesHousing.txt (the data file linked from the JSE article; `DATA_URL` in `src/download.py`) |
-| Downloaded on | 2026-11-19 |
-| Copy actually used | The JSE server could not be reached from the build environment, so this copy came from the public mirror `https://raw.githubusercontent.com/rasbt/machine-learning-book/main/ch09/AmesHousing.txt`, which `download.py` uses only as a fallback. MD5 `c2997eb69ab4bf946b9fbdb7e6805e36`. |
+| Downloaded on | 2026-11-23, from the JSE URL above by `src/download.py` (`make all`) |
+| Checksum | MD5 `c2997eb69ab4bf946b9fbdb7e6805e36`. `download.py` falls back to a public mirror (`https://raw.githubusercontent.com/rasbt/machine-learning-book/main/ch09/AmesHousing.txt`) only if JSE is unreachable; that mirror's file has the same MD5. |
 | Citation | De Cock, D. (2011). Ames, Iowa: Alternative to the Boston Housing Data as an End of Semester Regression Project. Journal of Statistics Education, 19(3). |
 | Data dictionary | https://jse.amstat.org/v19n3/decock/DataDocumentation.txt |
 | Terms of use | JSE leaves copyright with the contributing author, so the data may be used with citation for teaching and study, but publishing it requires the author's consent (https://jse.amstat.org/jse_users.htm). |

@@ -3,7 +3,8 @@
 Usage:  python src/validate.py data/raw/AmesHousing.txt --raw
         python src/validate.py data/processed/ames_clean.csv
 Exit code 1 when any rule fails. With --raw, the failure table is also saved to
-reports/results/validation_raw.csv for the report.
+reports/results/validation_raw.csv for the report. With --expect-fail the exit code is inverted
+(0 when validation fails, 1 when it passes), so the Makefile needs no shell "!" and runs on Windows.
 """
 import sys
 from pathlib import Path
@@ -282,14 +283,20 @@ def validate(df: pd.DataFrame) -> pd.DataFrame:
 if __name__ == "__main__":
     path = sys.argv[1]
     raw = "--raw" in sys.argv
+    expect_fail = "--expect-fail" in sys.argv
     df = read_raw(path) if raw else read_clean(path)
     try:
         validate(df)
         print(f"PASS {path}  ({len(df)} rows, {df.shape[1]} columns)")
+        if expect_fail:
+            sys.exit(f"ERROR: {path} was expected to FAIL validation but passed.")
     except ValidationError as e:
         print(f"FAIL {path}: {len(e.failures)} rule(s) failed\n{e}")
         if raw:
             out = Path("reports/results")
             out.mkdir(parents=True, exist_ok=True)
             pd.DataFrame(e.failures).drop(columns="message").to_csv(out / "validation_raw.csv", index=False)
+        if expect_fail:
+            print("(expected: the raw file must fail validation)")
+            sys.exit(0)
         sys.exit(1)
