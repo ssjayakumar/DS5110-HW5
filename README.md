@@ -12,7 +12,7 @@ pip install -r requirements.txt
 make all
 ```
 
-Requires Python 3.10 or newer (tested on 3.10 and 3.13). `make all` downloads the raw file if it is missing,
+Requires Python 3.10 or newer (tested on 3.10, 3.12 and 3.14). `make all` downloads the raw file if it is missing,
 cleans it, checks that validation **fails on the raw file and passes on the cleaned file**, runs
 Parts 5 to 7, and regenerates `reports/report.md` from `reports/report_template.md`.
 `make validate` runs only the validation gate; `make clean` removes all generated outputs

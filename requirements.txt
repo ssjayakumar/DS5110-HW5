@@ -1,6 +1,10 @@
-# Pinned versions. Tested with `make all` on Python 3.10 and 3.13 (identical report).
-numpy==2.2.6
-pandas==2.2.3
-scipy==1.15.3
-scikit-learn==1.6.1
-matplotlib==3.10.3
+# Pinned versions. Tested with `make all` on Python 3.10, 3.12 and 3.14 (identical report).
+# numpy and scipy have no single release with installers for both 3.10 and 3.14,
+# so pip picks one of two exact pins by Python version.
+numpy==2.2.6; python_version < "3.11"
+numpy==2.3.5; python_version >= "3.11"
+scipy==1.15.3; python_version < "3.11"
+scipy==1.16.3; python_version >= "3.11"
+pandas==2.3.3
+scikit-learn==1.7.2
+matplotlib==3.10.7
