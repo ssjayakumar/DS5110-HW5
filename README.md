@@ -78,4 +78,4 @@ and `Neighborhood` are passed through X only for the imputer, which drops them b
 
 ## AI assistance
 
-Claude: I used claude's help in writing the README.md and checking if all the tasks are covered.
+Claude: I used claude's help in writing code for src/ the README.md and checking if all the tasks are covered.
