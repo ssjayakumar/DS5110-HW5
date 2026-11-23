@@ -1,0 +1,12 @@
+check,column,rule,n,example_orders,source
+range,Garage Yr Blt,"outside [1864, 2010], values [2207.0]",1,[2261],"physical limit: Ames was founded in 1864, no building can be older; upper: study period: sales 2006-2010 (dictionary abstract)"
+allowed,MS Zoning,"codes not in dictionary {'C (all)': 25, 'I (all)': 2, 'A (agr)': 2}",29,"[214, 305, 306, 307, 308]","data dictionary (De Cock 2011, DataDocumentation.txt), MS Zoning"
+allowed,Neighborhood,codes not in dictionary {'NAmes': 443},443,"[1, 2, 3, 4, 24]","data dictionary (De Cock 2011, DataDocumentation.txt), Neighborhood"
+allowed,Bldg Type,"codes not in dictionary {'Duplex': 109, 'Twnhs': 101, '2fmCon': 62}",272,"[30, 31, 32, 34, 35]","data dictionary (De Cock 2011, DataDocumentation.txt), Bldg Type"
+allowed,Exterior 2nd,"codes not in dictionary {'CmentBd': 126, 'Wd Shng': 81, 'Brk Cmn': 22}",229,"[7, 9, 16, 34, 35]","data dictionary (De Cock 2011, DataDocumentation.txt), Exterior 2nd"
+allowed,Sale Type,codes not in dictionary {'WD ': 2536},2536,"[1, 2, 3, 4, 5]","data dictionary (De Cock 2011, DataDocumentation.txt), Sale Type"
+cross,Year Remod/Add >= Year Built,violated,1,[851],dictionary: remodel date is the construction date if no remodeling
+cross,Year Remod/Add <= Yr Sold (+1 for Partial sales),violated,1,[2181],"a remodel recorded at sale cannot be later than the sale; dictionary, 'Partial'"
+cross,Garage Yr Blt <= Yr Sold (+1 for Partial sales),violated,1,[2261],"a garage cannot be built after the sale; dictionary, 'Partial'"
+cross,Mas Vnr Type is none <=> Mas Vnr Area == 0,violated,10,"[364, 404, 442, 1641, 1741]",dictionary: Mas Vnr Type 'None' and Mas Vnr Area in square feet describe the same veneer
+cross,Garage Type not none => Garage Finish/Qual/Cond not none,violated,1,[1357],dictionary: 'NA No Garage' in Garage Finish/Qual/Cond only when there is no garage

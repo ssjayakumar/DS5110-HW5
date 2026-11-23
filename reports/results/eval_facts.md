@@ -1,0 +1,4 @@
+- Rows used: 2928 (dropped Order [1342, 2237]: unknown values in other features).
+- A - C = +0.00003; B - C = +0.000005 (+0.003% of C).
+- Lot Frontage missing in 490 rows (16.7%).
+- B vs C fills on test-fold rows: mean |difference| 0.75 ft, max 8.86 ft (fills themselves average 72.2 ft).

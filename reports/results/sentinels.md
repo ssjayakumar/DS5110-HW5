@@ -1,0 +1,29 @@
+| column | default_NaN | as 'NA' | as 'None' | as empty | dictionary_none_code | dictionary_meaning |
+| --- | --- | --- | --- | --- | --- | --- |
+| Lot Frontage | 490 | 0 | 0 | 490 | - | no none-code: empty = unknown |
+| Alley | 2732 | 2732 | 0 | 0 | NA | No alley access |
+| Mas Vnr Type | 1775 | 0 | 1752 | 23 | None | None (no masonry veneer) |
+| Mas Vnr Area | 23 | 0 | 0 | 23 | - | no none-code: empty = unknown |
+| Bsmt Qual | 80 | 79 | 0 | 1 | NA | No Basement |
+| Bsmt Cond | 80 | 79 | 0 | 1 | NA | No Basement |
+| Bsmt Exposure | 83 | 79 | 0 | 4 | NA | No Basement |
+| BsmtFin Type 1 | 80 | 79 | 0 | 1 | NA | No Basement |
+| BsmtFin SF 1 | 1 | 0 | 0 | 1 | - | no none-code: empty = unknown |
+| BsmtFin Type 2 | 81 | 79 | 0 | 2 | NA | No Basement |
+| BsmtFin SF 2 | 1 | 0 | 0 | 1 | - | no none-code: empty = unknown |
+| Bsmt Unf SF | 1 | 0 | 0 | 1 | - | no none-code: empty = unknown |
+| Total Bsmt SF | 1 | 0 | 0 | 1 | - | no none-code: empty = unknown |
+| Electrical | 1 | 0 | 0 | 1 | - | no none-code: empty = unknown |
+| Bsmt Full Bath | 2 | 0 | 0 | 2 | - | no none-code: empty = unknown |
+| Bsmt Half Bath | 2 | 0 | 0 | 2 | - | no none-code: empty = unknown |
+| Fireplace Qu | 1422 | 1422 | 0 | 0 | NA | No Fireplace |
+| Garage Type | 157 | 157 | 0 | 0 | NA | No Garage |
+| Garage Yr Blt | 159 | 0 | 0 | 159 | - | no none-code: empty = unknown |
+| Garage Finish | 159 | 157 | 0 | 2 | NA | No Garage |
+| Garage Cars | 1 | 0 | 0 | 1 | - | no none-code: empty = unknown |
+| Garage Area | 1 | 0 | 0 | 1 | - | no none-code: empty = unknown |
+| Garage Qual | 159 | 158 | 0 | 1 | NA | No Garage |
+| Garage Cond | 159 | 158 | 0 | 1 | NA | No Garage |
+| Pool QC | 2917 | 2917 | 0 | 0 | NA | No Pool |
+| Fence | 2358 | 2358 | 0 | 0 | NA | No Fence |
+| Misc Feature | 2824 | 2824 | 0 | 0 | NA | None |

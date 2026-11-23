@@ -1,0 +1,36 @@
+| step | column | rows | what | why |
+| --- | --- | --- | --- | --- |
+| strip | Sale Type | 2536 | removed surrounding whitespace | dictionary code has no trailing space |
+| code | MS Zoning | 25 | 'C (all)' -> 'C' | dictionary code for the same category |
+| code | MS Zoning | 2 | 'I (all)' -> 'I' | dictionary code for the same category |
+| code | MS Zoning | 2 | 'A (agr)' -> 'A' | dictionary code for the same category |
+| code | Neighborhood | 443 | 'NAmes' -> 'Names' | dictionary code for the same category |
+| code | Bldg Type | 109 | 'Duplex' -> 'Duplx' | dictionary code for the same category |
+| code | Bldg Type | 101 | 'Twnhs' -> 'TwnhsI' | dictionary code for the same category |
+| code | Bldg Type | 62 | '2fmCon' -> '2FmCon' | dictionary code for the same category |
+| code | Exterior 2nd | 126 | 'CmentBd' -> 'CemntBd' | dictionary code for the same category |
+| code | Exterior 2nd | 81 | 'Wd Shng' -> 'WdShing' | dictionary code for the same category |
+| code | Exterior 2nd | 22 | 'Brk Cmn' -> 'BrkComm' | dictionary code for the same category |
+| contradiction | Garage Qual | 1 | 'NA' (no garage) -> NaN | Garage Type says a garage exists: value unknown |
+| contradiction | Garage Cond | 1 | 'NA' (no garage) -> NaN | Garage Type says a garage exists: value unknown |
+| structural | Alley | 2732 | 'NA' -> 'Absent' | dictionary: No alley access |
+| structural | Bsmt Qual | 79 | 'NA' -> 'Absent' | dictionary: No Basement |
+| structural | Bsmt Cond | 79 | 'NA' -> 'Absent' | dictionary: No Basement |
+| structural | Bsmt Exposure | 79 | 'NA' -> 'Absent' | dictionary: No Basement |
+| structural | BsmtFin Type 1 | 79 | 'NA' -> 'Absent' | dictionary: No Basement |
+| structural | BsmtFin Type 2 | 79 | 'NA' -> 'Absent' | dictionary: No Basement |
+| structural | Fireplace Qu | 1422 | 'NA' -> 'Absent' | dictionary: No Fireplace |
+| structural | Garage Type | 157 | 'NA' -> 'Absent' | dictionary: No Garage |
+| structural | Garage Finish | 157 | 'NA' -> 'Absent' | dictionary: No Garage |
+| structural | Garage Qual | 157 | 'NA' -> 'Absent' | dictionary: No Garage |
+| structural | Garage Cond | 157 | 'NA' -> 'Absent' | dictionary: No Garage |
+| structural | Pool QC | 2917 | 'NA' -> 'Absent' | dictionary: No Pool |
+| structural | Fence | 2358 | 'NA' -> 'Absent' | dictionary: No Fence |
+| structural | Misc Feature | 2824 | 'NA' -> 'Absent' | dictionary: None |
+| structural | Mas Vnr Type | 1752 | 'None' -> 'Absent' | dictionary: None (no masonry veneer) |
+| structural | Bsmt Full Bath | 1 | NaN -> 0 | Bsmt Qual = No Basement, so the count/area is 0 |
+| structural | Bsmt Half Bath | 1 | NaN -> 0 | Bsmt Qual = No Basement, so the count/area is 0 |
+| impossible | Garage Yr Blt | 1 | value after the study period -> NaN | range rule; 2207 is probably 2007 but that is a guess |
+| contradiction | Year Remod/Add | 2 | -> NaN | before construction or after the sale |
+| contradiction | Mas Vnr Type | 10 | -> NaN | type and area disagree; either could be the error |
+| contradiction | Mas Vnr Area | 10 | -> NaN | type and area disagree; either could be the error |
